@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, Text, StyleSheet, SafeAreaView, Alert } from "react-native";
+import { PizzaItem } from "./components/PizzaItem";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+function App() {
+
+  const handleButton = () => {
+    Alert.alert("Apertou")
+  }
+
+  return(
+    <SafeAreaView>
+      <Text style={styles.store}> Pizzaria bonapetit</Text>
+      <Button title = "Clique aqui" onPress={handleButton} />
+      <PizzaItem/>
+      <PizzaItem/>
+    </SafeAreaView>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  store: {
+    fontSize: 30,
+    color: 'red',
+    textAlign: 'center',
+    paddingBottom: 15
+  }
+})
+
+export default App
