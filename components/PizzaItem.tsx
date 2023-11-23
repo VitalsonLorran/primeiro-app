@@ -1,9 +1,19 @@
+import react from 'react'
+import { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 export const PizzaItem = () => {
+    const [name, setName] = useState('nenhumma')
+
+    const handleButton1 = () => {
+        setName('calabresa')
+    }
+    const handleButton2 = () => {
+        setName('frango')
+    }
     return(
         <View style={styles.container}>
-            <Text style={styles.flavor}>Pizza Calabresa</Text>
+            <Text style={styles.flavor}>Pizza {name}</Text>
             <Text>R$ 50,00</Text>
         </View>
     )

@@ -1,28 +1,38 @@
 import { Button, Text, StyleSheet, SafeAreaView, Alert } from "react-native";
-import { PizzaItem } from "./components/PizzaItem";
+// import { PizzaItem } from "./components/PizzaItem";
+import { useState } from "react";
 
 function App() {
 
-  const handleButton = () => {
-    Alert.alert("Apertou")
+  const [name, setName] = useState('fulano')
+  const botao1 = () => {
+    setName('Lorran')
   }
-
+  const botao2 = () => {
+    setName('Clara')
+  }
   return(
     <SafeAreaView>
-      <Text style={styles.store}> Pizzaria bonapetit</Text>
-      <Button title = "Clique aqui" onPress={handleButton} />
-      <PizzaItem/>
-      <PizzaItem/>
+      <Text style={styles.title}>Meu primeiro app React Native</Text>
+      <Text style={styles.subtitle}>Meu nome é {name}</Text>
+      <Button title="Mudar para Lorran" onPress={botao1}/>
+      <Button title="Mudar para Clara" onPress={botao2}/>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
-  store: {
+  title: {
     fontSize: 30,
     color: 'red',
     textAlign: 'center',
-    paddingBottom: 15
+    padding: 15
+  },
+  subtitle:{
+    fontSize:20,
+    color: 'black',
+    textAlign: 'center',
+    margin: 30
   }
 })
 
